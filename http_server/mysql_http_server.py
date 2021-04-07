@@ -12,7 +12,7 @@ try:
         host="localhost",
         user="yu",
         password="huayu364+",
-        database="rf-addr",
+        database="test",
         raw=True
     )
 except mysql.connector.Error as err:
@@ -84,9 +84,9 @@ class S(BaseHTTPRequestHandler):
             }
         if 'operation' in query_components:
             if 'operator' not in query_components:
-                print(f"ERROR: access denied, need operator's name")
+                print(f"ERROR: access denied for unknown operator")
                 response_dict = {
-                    "result": "ERROR: access denied, need operator's name"
+                    "result": "ERROR: access denied, please provide operator's name"
                 }
             else:
                 if query_components['operation'][0] == 'rf_get':
